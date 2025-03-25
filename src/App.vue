@@ -19,6 +19,7 @@ import genesisURL from "./assets/genesis-sample.svg"
 import hapticHelperImgURL from "./assets/haptic-helper.jpg"
 import hapticHelperReport from "./assets/219_Project_Report.pdf"
 import gyroURL from "./assets/chicken_gyro_gyroscope.jpg"
+import roboticsFinalImgURL from "./assets/robotics-final.jpg"
 
 </script>
 
@@ -81,8 +82,7 @@ import gyroURL from "./assets/chicken_gyro_gyroscope.jpg"
           <h1 class="section-title">
             Resume
             <a class="download-link" :href="resumeURL" target="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24"
-                height="24" viewBox="0 0 24 24">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
                 <path d="M12 21l-8-9h6v-12h4v12h6l-8 9zm9-1v2h-18v-2h-2v4h22v-4h-2z" />
               </svg>
             </a>
@@ -149,6 +149,21 @@ import gyroURL from "./assets/chicken_gyro_gyroscope.jpg"
       <h1 class="section-title" style="color: var(--orange); text-align: center;">
         Projects
       </h1>
+
+      <ProjectTile title="Robotics Final" :image="roboticsFinalImgURL" endDate="March 2025"
+        link="https://docs.google.com/document/d/1A2_n9OK0q9do_Wl2d3dW2X3klAOe7WKtcjpwHUf6HaQ/edit?usp=sharing" altText="Final Report">
+        The final project for MAE204 (Robotics) at UCSD was to write software required to control a youBot which is a 5R
+        arm attached
+        to a base with 4 Mecanum wheels. The robot was tasked with picking up a block at a given location and placing
+        the block at a specified location
+        with a desired orientation. The software consists of 3 main components: a trajectory generator which consists of
+        all necessary trajectory segments
+        required to accomplish the task, a feedforward + feedback controller, and a kinematics simulator which uses
+        odometry to calculate the current configuration
+        of the robot. These components work together to generate a csv file containing the configuration of each of the
+        component of the youBot which is then run
+        through CoppeliaSim to simulate the execution of the task and validate the software.
+      </ProjectTile>
 
       <ProjectTile class="flip" title="Haptic Helper" :image="hapticHelperImgURL" startDate="Nov. 2024"
         endDate="Dec. 2024" :link="hapticHelperReport" altText="Research Report">

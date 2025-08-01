@@ -9,17 +9,19 @@ import ProjectTile from './components/ProjectTile.vue'
 const coverImg = new URL("./assets/cover-img.png", import.meta.url).href
 
 import gearURL from "./assets/noun-gear-1241.svg"
-import resumeURL from "./assets/Logan Reuter Resume.pdf"
+import resumeURL from "./assets/Reuter Full Resume.pdf"
 import rambleURL from "./assets/ramble-sample.svg"
 import fryerURL from "./assets/potato-ball-fryer.png"
 import wingURL from "./assets/birdwing.png"
 import pipeURL from "./assets/pipe.png"
+import NNURL from "./assets/ViTPose.png"
 import heatTransferLink from "./assets/EME165 Final Project.pdf"
 import genesisURL from "./assets/genesis-sample.svg"
 import hapticHelperImgURL from "./assets/haptic-helper.jpg"
 import hapticHelperReport from "./assets/219_Project_Report.pdf"
 import gyroURL from "./assets/chicken_gyro_gyroscope.jpg"
 import roboticsFinalImgURL from "./assets/robotics-final.jpg"
+import ViTPoseReport from "./assets/ViTPoseFinalReport.pdf"
 
 </script>
 
@@ -58,20 +60,21 @@ import roboticsFinalImgURL from "./assets/robotics-final.jpg"
         <h1 class="section-title" style="color: var(--teal);">About Me</h1>
         <p>
 
-          Hello! I am Logan Reuter, an aspiring mechanical engineer with an interest in mechatronics.
+          Hello! I am Logan, a mechanical engineer with a passion for design, mechatronics, and robotics.
+          I recently completed my M.S. in Mechanical Engineering at UC San Diego, where I focused on robotic systems and strengthening
+          my engineering foundations.
 
           <br> <br>
 
-          What sets me a part from other mechanical engineers is my interest and passion for computer science and
-          electronics.
+          I enjoy working at the intersection of hardware and software; designing systems that explore areas of actuation, control, and design.
           I strive to become a jack of all trades when it comes to engineering which makes me eager to learn knew
           concepts whenever I come across them.
 
           <br> <br>
-
-          Outside of my professional life, I enjoy photography, playing the guitar, and website design. All of which
-          help keep my creative
-          juices flowing while providing a great balance to my work.
+          
+          In my free time, I am always tinkering with personal projects or learning new skills.
+          Outside of my engineering, I enjoy photography, playing the guitar, and painting. All of which
+          help keep my creative juices flowing while providing a great balance to my work.
         </p>
       </div>
     </section>
@@ -81,16 +84,18 @@ import roboticsFinalImgURL from "./assets/robotics-final.jpg"
         <div class="education-wrapper">
           <h1 class="section-title">
             Resume
-            <a class="download-link" :href="resumeURL" target="#">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                <path d="M12 21l-8-9h6v-12h4v12h6l-8 9zm9-1v2h-18v-2h-2v4h22v-4h-2z" />
-              </svg>
-            </a>
           </h1>
           <h2>Education:</h2>
           <EducationTile degree="M.S. Mechanical Engineering" school="UC San Diego" date="June 2025"
-            :isExpected="true" />
+            :isExpected="false" />
           <EducationTile degree="B.S. Mechanical Engineering" school="UC Davis" date="June 2024" :isExpected="false" />
+        
+            <a class="download-link" :href="resumeURL" target="#">
+              Download
+              <svg class="download-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path d="M12 21l-8-9h6v-12h4v12h6l-8 9zm9-1v2h-18v-2h-2v4h22v-4h-2z" />
+              </svg>
+            </a>
         </div>
 
         <div class="experience-wrapper">
@@ -149,6 +154,15 @@ import roboticsFinalImgURL from "./assets/robotics-final.jpg"
       <h1 class="section-title" style="color: var(--orange); text-align: center;">
         Projects
       </h1>
+
+      <ProjectTile class="flip" title="Human Keypoint Estimation" :image="NNURL" endDate="June 2025" 
+        :link="ViTPoseReport" altText="Final Report">
+        For the final project for ECE285 (Introduction to Computer Vision), I recreated the ViTPose neural network model proposed by Xu et al. [<a href="https://arxiv.org/abs/2204.12484" target="#">link</a>]
+        The network utilizes a standard vision transformer paired with a simple decoder to identify human keypoints (e.g. wrist, ankle, head).
+        The project encompassed all of the various aspects of creating a neural network: creating the model, choosing the dataset, training the model,
+        evaluation of the results, and debugging. The reason I chose this project to complete was to serve as a stepping stone for future projects. Human keypoint estimation
+        allows a system to retrieve input from people without a physical interface, which would allow for a number of cool projects.
+      </ProjectTile>
 
       <ProjectTile title="Robotics Final" :image="roboticsFinalImgURL" endDate="March 2025"
         link="https://docs.google.com/document/d/1A2_n9OK0q9do_Wl2d3dW2X3klAOe7WKtcjpwHUf6HaQ/edit?usp=sharing" altText="Final Report">
@@ -366,12 +380,26 @@ section
 
   .download-link
   {
-    font-size: 16pt;
+    font-size: 12pt;
     margin: 0;
-    padding: 0;
+    padding: 0.5em 1em;
     line-height: 1rem;
     text-shadow: 1px 1px var(--gray);
     -webkit-text-stroke: 0px;
+    background-color: var(--white);
+    border: 2px solid var(--gray);
+    color: var(--gray);
+    border-radius: 15px;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5em;
+
+    .download-icon
+    {
+      width: 1em;
+    }
   }
 
   .resume-content-wrapper
